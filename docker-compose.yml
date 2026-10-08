@@ -1,0 +1,13 @@
+# MySQL only; run Flask and Vite locally. The app creates its tables on startup.
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: listing_reviewer
+      MYSQL_USER: reviewer
+      MYSQL_PASSWORD: reviewer
+      MYSQL_ROOT_PASSWORD: root
+    ports: ["3306:3306"]
+    volumes: ["mysqldata:/var/lib/mysql"]
+volumes:
+  mysqldata:
